@@ -1,0 +1,26 @@
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #F7F7F7;;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  align-items: center;
+}
+
+.icons > i {
+  padding-right: 20px;
+  font-size: 20px;
+}
+
+p {
+  margin-bottom: 0px;
+}
+
+img {
+  padding-left: 20px;
+}
