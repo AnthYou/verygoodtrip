@@ -35,9 +35,18 @@
         </ul>
       </div>
     </div>
-<!--     Devise alerts -->
+    <!-- Devise alerts -->
     <p class="alert alert-success"><%= notice %></p>
     <p class="alert alert-danger"><%= alert %></p>
+    
+    <!-- Devise links -->
+    <% if user_signed_in? %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
