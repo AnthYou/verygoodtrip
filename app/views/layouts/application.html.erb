@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <!-- Nav bar -->
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to "#", class: "navbar-brand" do %>
         <%= image_tag 'test1708' %>
@@ -20,8 +21,6 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -36,6 +35,9 @@
         </ul>
       </div>
     </div>
+<!--     Devise alerts -->
+    <p class="alert alert-success"><%= notice %></p>
+    <p class="alert alert-danger"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
