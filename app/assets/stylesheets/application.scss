@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import "config/variables";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -11,4 +12,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "pages/new_trip_form"
+@import "pages/new_trip_form";
+
+.container-view {
+  min-height: calc(100vh - #{$footer-height} - #{$navbar-height});
+}
