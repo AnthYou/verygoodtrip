@@ -52,7 +52,7 @@ trip_1 = Trip.create!(
 
 trip_2 = Trip.create!(
   title: "Excursion sur l'ile de la réunion",
-  description:"Un séjour de rêve " ,
+  description:"Un séjour de rêve" ,
   destination:"Saint-Denis" ,
   budget_min: 1500,
   budget_max: 3000,
@@ -90,14 +90,13 @@ trip_4 = Trip.create!(
 booking_1 = Booking.create!(
   user: user_2,
   trip: trip_1,
+  description: "I would love to join this trip!",
   accepted: true
   )
 
 booking_2 = Booking.create!(
   user: user_3,
   trip: trip_1,
+  description: "I would love to join this trip lol",
   accepted: true
   )
-
-
-
