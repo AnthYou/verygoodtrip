@@ -1,0 +1,16 @@
+<div class="cards">
+  <div class="row">
+    <% @trips.each do |trip| %>
+    <div class="card col-12 col-md-6">
+      <div class = "card-top" style="background-image: url(<%= image_path('sf.jpg') %>); background-size: cover; height: 300px;">
+       <%= trip.title %>
+      </div>
+       <div class="card-body">
+         <h5 class="card-title font-weight-bold"><%=trip.destination%></h5>
+         <p class="card-text"><%=trip.description%></p>
+         <p class="card-text"><small class="text-muted"><%=trip.capacity %> people</small></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

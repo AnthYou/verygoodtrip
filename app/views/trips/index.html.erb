@@ -1,6 +1,2 @@
-<ul>
-  <% @trips.each do |trip| %>
-    <li><%= link_to trip.title, trips_path %></li>
-  <% end %>
-</ul>
+<%= render 'layouts/tripcards' %>
 <%= link_to 'Add new destination', new_trip_path(@trip) %>
