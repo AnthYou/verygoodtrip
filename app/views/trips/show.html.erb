@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="row p-1">
+    <h1><%= @trip.title %></h1>
+  </div>
+  <div class="row p-1">
+    <h2><%= @trip.destination %></h2>
+  </div>
+  <div class="row p-1">
+    <h3>Between $<%= @trip.budget_min %> - $<%= @trip.budget_max %></h3>
+  </div>
+  <div class="row p-1">
+    <%= @trip.description %>
+  </div>
+  <div class="row justify-content-between p-1">
+    <div class="col-xs-6">
+      <p>Departure date: <%= @trip.departure_date %></p>
+    </div>
+    <div class="col-xs-6">
+      <p>Return date: <%= @trip.return_date %></p>
+    </div>
+  </div>
+  <div class="row p-1">
+    <p>Capacity max: <%= @trip.capacity %></p>
+  </div>
+</div>
