@@ -1,6 +1,9 @@
 <div class="container mt-5">
   <% @trips.each do |trip| %>
   <div class="row p-1">
+    <% if trip.photo.attached?  %>
+      <%= cl_image_tag trip.photo.key, width: 200, height: 100, crop: :fill %>
+    <% end %>
     <%= link_to trip.title, trip_path(trip) %>
   </div>
   <% end %>
