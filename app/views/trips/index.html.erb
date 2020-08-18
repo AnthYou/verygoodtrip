@@ -2,6 +2,9 @@
   <ul>
     <% @trips.each do |trip| %>
       <li><%= trip.title %></li>
+      <% if trip.photo.attached?  %>
+        <li><%= cl_image_tag trip.photo.key %></li>
+      <% end %>
     <% end %>
   </ul>
 </div>
