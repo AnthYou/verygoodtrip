@@ -4,8 +4,15 @@
   <% else %>
     <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('sf.jpg')%>); background-size: cover ; height: 260px; position: relative">
   <% end %>
-   <h2 class="text-center p-2"><%= link_to trip.title, trip_path(trip), style: "text-decoration:none; color: white"%></h2>
-   <span class="badge badge-info mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;">5 days before departure</span>
+  <h2 class="text-center p-2"><%= link_to trip.title, trip_path(trip), style: "text-decoration:none; color: white"%></h2>
+  <% days_before_departure = trip.departure_date - Date.today %>
+  <% if days_before_departure <= 0 %>
+    <span class="badge badge-success mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> Departed !</span>
+  <% elsif days_before_departure <= 7 %>
+    <span class="badge badge-danger mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> <%= (days_before_departure).to_i %> days before departure</span>
+  <% else%>
+    <span class="badge badge-info mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> <%= (days_before_departure).to_i %> days before departure</span>
+  <%end %>
   </div>
     <div class="card-body" style="position: relative">
      <!--  AVATARS -->
@@ -19,7 +26,7 @@
        <p class="card-text card-text-description"><%=trip.description%></p>
        <div class="card-details ml-4">
         <p class="card-text"><small class="text-muted"><%=trip.capacity %> people max</small></p>
-        <p class="card-text">10 nights</p>
+        <p class="card-text"><%= (trip.return_date - trip.departure_date).to_i %> nights</p>
         <p class="card-text font-weight-bold"><%=trip.budget_min%> - <%=trip.budget_max%> $</p>
        </div>
      </div>
