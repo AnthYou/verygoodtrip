@@ -7,6 +7,10 @@ class TripsController < ApplicationController
     @trip = Trip.new # needed to instantiate the form_for
   end
 
+  def show
+    @trip = Trip.find(params[:id])
+  end
+
   def create
     @trip = Trip.new(trip_params)
     if @trip.save
