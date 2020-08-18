@@ -15,7 +15,7 @@
     <!-- Nav bar -->
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag 'test1708' %>
+        <%= image_tag 'test1708.png' %>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
           </li>
           <% if user_signed_in? %>
             <li class="nav-item active">
-                <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?'}, class: "nav-link" %>
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?'}, class: "nav-link" %>
             </li>
           <% else %>
             <li class="nav-item active">
