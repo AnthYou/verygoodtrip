@@ -1,9 +1,6 @@
-<div class="container mt-5">
-  <ul>
-    <% @trips.each do |trip| %>
-      <li><%= trip.title %></li>
-    <% end %>
-  </ul>
-</div>
-
-
+<ul>
+  <% @trips.each do |trip| %>
+    <li><%= link_to trip.title, trips_path %></li>
+  <% end %>
+</ul>
+<%= link_to 'Add new destination', new_trip_path(@trip) %>
