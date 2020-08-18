@@ -1,6 +1,8 @@
-<ul class="list-group">
-  <% @trips.each do |trip| %>
-    <li class="list-group-item"><%= trip.name %></li>
-
-  <% end %>
-</ul>
+<h2><%= @trip.title %></h2>
+<p><%= @trip.destination %></p>
+<p><%= @trip.description %></p>
+<p><%= @trip.budget_min %></p>
+<p><%= @trip.budget_max %></p>
+<p><%= @trip.departure_date %></p>
+<p><%= @trip.return_date %></p>
+<p><%= @trip.capacity %></p>
