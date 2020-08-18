@@ -22,5 +22,6 @@
   <div class="row p-1">
     <p>Capacity max: <%= @trip.capacity %></p>
   </div>
+  <%= link_to "Join this Trip", new_trip_booking_path(@trip) %>
 </div>
 
