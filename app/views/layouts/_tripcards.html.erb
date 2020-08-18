@@ -1,13 +1,13 @@
 <div class="cards">
   <div class="row">
     <% @trips.each do |trip| %>
-      <div class="card col-12 col-md-6">
+      <div class="card col-12 col-md-6 mb-2 p-3">
         <% if trip.photo.attached? %>
-          <div class = "card-top d-flex align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.photo.key, height: 300, width: 400, crop: :fill %>')">
+          <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.photo.key, height: 300, width: 400, crop: :fill %>')">
         <% else %>
-          <div class = "card-top d-flex align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('sf.jpg')%>); background-size: cover ; height: 260px;">
+          <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('sf.jpg')%>); background-size: cover ; height: 260px;">
         <% end %>
-         <h2 class="text-center text-white "><%= trip.title %></h2>
+         <h2 class="text-center text-white"><%= trip.title %></h2>
         </div>
          <div class="card-body">
            <h5 class="card-title font-weight-bold"><%=trip.destination%></h5>
