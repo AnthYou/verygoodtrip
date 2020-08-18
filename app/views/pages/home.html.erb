@@ -1,8 +1,21 @@
-<div class="container mt-5">
-    <h1>Main page</h1>
-    <p>Hello guys !</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("banner-very-good.jpg") %>);">
+  <div class="container">
+    <h1>Welcome to <strong>Very Good Trip</strong>!</h1>
+  </div>
+</div>
 
+<div class="container">
+  <div class="last-trips mt-5 mb-5">
+    <h2 class="text-center mb-5">Last created trips</h2>
+    <% Trip.last(3).each do |trip| %>
+      <div class="m-3">
+        <%= render 'layouts/tripcard', trip: trip  %>
+      </div>
+    <% end %>
+  </div>
   <hr>
+  <div class="mb-5">
     <%= link_to 'See all trips', trips_path, class: 'btn btn-outline-primary'  %>
     <%= link_to 'Create a trip', new_trip_path, class: 'btn btn-primary'  %>
+  </div>
 </div>
