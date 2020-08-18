@@ -1,0 +1,30 @@
+<div class="cards">
+  <div class="row">
+    <% @trips.each do |trip| %>
+      <div class="col-12 col-lg-6 p-3">
+        <div class="card">
+          <% if trip.photo.attached? %>
+            <div class = "card-top d-flex align-items-center justify-content-center" style=" position: relative; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.photo.key, height: 300, width: 400, crop: :fill %>')">
+          <% else %>
+            <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('sf.jpg')%>); background-size: cover ; height: 260px; position: relative">
+          <% end %>
+           <h2 class="text-center text-white p-2"><%= trip.title %></h2>
+           <span class="badge badge-info mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;">5 days before departure</span>
+          </div>
+            <div class="card-body">
+              <h5 class="card-title font-weight-bold"><%=trip.destination%></h5>
+              <div class="card-bottom d-flex justify-content-between ">
+               <p class="card-text card-text-description"><%=trip.description%></p>
+               <div class="card-details ml-4">
+                <p class="card-text"><small class="text-muted"><%=trip.capacity %> people max</small></p>
+                <p class="card-text">10 nights</p>
+                <p class="card-text"><%=trip.budget_min%> - <%=trip.budget_max%> $</p>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
