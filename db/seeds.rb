@@ -90,12 +90,14 @@ trip_4 = Trip.create!(
 booking_1 = Booking.create!(
   user: user_2,
   trip: trip_1,
+  description: "I would love to join this trip!",
   accepted: true
   )
 
 booking_2 = Booking.create!(
   user: user_3,
   trip: trip_1,
+  description: "I would love to join this trip",
   accepted: true
   )
 
