@@ -18,7 +18,7 @@ class Trip < ApplicationRecord
     return if return_date.blank? || departure_date.blank?
 
     if return_date < departure_date
-      errors.add(:end_date, "must be after the departure date")
+      errors.add(:return_date, "must be after the departure date")
     end
   end
 end
