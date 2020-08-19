@@ -3,7 +3,7 @@ class Trip < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
   validates :title, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: { minimum: 100 }
   validates :destination, presence: true
   validates :budget_min, presence: true
   validates :budget_max, presence: true
