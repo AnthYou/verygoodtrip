@@ -10,9 +10,9 @@
     <span class="badge badge-success mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> Departed !</span>
   <% elsif days_before_departure <= 7 %>
     <span class="badge badge-danger mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> <%= (days_before_departure).to_i %> days before departure</span>
-  <% else%>
+  <% else %>
     <span class="badge badge-info mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> <%= (days_before_departure).to_i %> days before departure</span>
-  <%end %>
+  <% end %>
   </div>
     <div class="card-body" style="position: relative">
      <!--  AVATARS -->
