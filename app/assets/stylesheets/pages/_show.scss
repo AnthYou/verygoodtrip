@@ -19,11 +19,104 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-#row3 {
-  text-align: center;
-  background-color: grey;
+.description {
+  // text-align: center;
+  background-color: $mid-gray;
+  border-radius: 5px;
+  // padding: 32px;
 }
 
-.h2{
+.title {
+  text-align: center;
   color: white;
 }
+
+.spec {
+// position: absolute;
+display: flex;
+flex-direction: column;
+}
+
+.image .card-top {
+  border-radius: 5px;
+}
+.option {
+  display:flex;
+  justify-content: center;
+}
+.tag {
+    background-color: gray;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+  }
+.icon {
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  margin: 50px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+
+}
+
+h2  {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.flex {
+  display: flex;
+  margin-top: 30px;
+}
+
+.people {
+  background-color: lightgrey;
+  border-radius: 10px;
+  margin-right: 30px;
+}
+
+.btn-travel {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: black;
+  transition: background 0.3s ease;
+  margin-top:50px;
+}
+
+.btn-travel:hover {
+  background: black;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
