@@ -30,9 +30,10 @@
      <!--  AVATARS -->
     <ul class= "in-line p-2" style="position: absolute; right: 17px; top:-28px ">
     <% trip.bookings.each do |booking| %>
-      <li class="list-inline-item"> <%= cl_image_tag booking.user.photo.key, width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %> </li>
+      <%if booking.accepted %>
+          <li class="list-inline-item"> <%= cl_image_tag booking.user.photo.key, width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %> </li>
+      <% end %>
     <% end %>
-    </ul>
     </ul>
       <h5 class="card-title font-weight-bold"><%=trip.destination%></h5>
       <div class="card-bottom d-flex justify-content-between ">
