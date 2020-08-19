@@ -1,0 +1,17 @@
+<h1 class="text-center mb-5">Dashboard</h1>
+
+  <div class="container-user-infos">
+    <% if user_signed_in? == false %>
+      <%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg", class: "avatar-dashboard", crop: :fill, gravity: :face %>
+    <% elsif current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar-dashboard", crop: :fill, gravity: :face%>
+    <% end %>
+      <div class="user-infos">
+        <h2>Hello <%= @user.first_name %> !</h2>
+        <p>Here are your trips:</p>
+      </div>
+    </div>
+
+
+
+  <%= render 'layouts/tripcards_user' %>
