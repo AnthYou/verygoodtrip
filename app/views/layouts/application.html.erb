@@ -12,12 +12,11 @@
   </head>
 
   <body>
-    <!-- Nav bar -->
-    <%= render 'layouts/navbar' %>
     <!-- Devise alerts -->
     <p class="notice"><div class="alert-success"><%= notice %></div></p>
     <p class="alert"><div class="alert-danger"><%= alert %></div></p>
-    <!-- Devise links -->
+    <!-- Nav bar -->
+    <%= render 'layouts/navbar' %>
     <div class="container-view">
       <%= yield %>
     </div>
