@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2020_08_18_154317) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "budget_max"
-    t.bigint "user_id"
     t.date "departure_date"
     t.date "return_date"
     t.bigint "user_id"
