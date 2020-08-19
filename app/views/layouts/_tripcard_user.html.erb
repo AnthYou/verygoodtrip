@@ -1,26 +1,37 @@
 <div class="card">
   <% if trip.photo.attached? %>
+
     <div class = "card-top d-flex align-items-center justify-content-center" style=" position: relative; height: 260px; background-size:cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.photo.key%>')">
   <% else %>
     <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('sf.jpg')%>); background-size: cover ; height: 260px; position: relative">
   <% end %>
+
+
   <h2 class="text-center p-2"><%= link_to trip.title, trip_path(trip), style: "text-decoration:none; color: white"%></h2>
   <% days_before_departure = trip.departure_date - Date.today %>
+
+  <!--  Badges Pending or Accepted -->
+  <% if trip.bookings.first.accepted %>
+    <span class="badge badge-success mb-3 p-2 font-weight-light" style="position: absolute; right: 620px; top:20px;"> Accepted</span>
+  <% else %>
+    <span class="badge badge-warning mb-3 p-2 font-weight-light" style="position: absolute; right: 620px; top:20px;"> Pending</span>
+  <% end  %>
+
+  <!--  Badges Departure -->
   <% if days_before_departure <= 0 %>
     <span class="badge badge-success mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> Departed !</span>
   <% elsif days_before_departure <= 7 %>
     <span class="badge badge-danger mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> <%= (days_before_departure).to_i %> days before departure</span>
-  <% else %>
+  <% else%>
     <span class="badge badge-info mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> <%= (days_before_departure).to_i %> days before departure</span>
-  <% end %>
+  <%end %>
   </div>
     <div class="card-body" style="position: relative">
      <!--  AVATARS -->
     <ul class= "in-line p-2" style="position: absolute; right: 17px; top:-28px ">
-    <% trip.bookings.each do |booking| %>
-      <li class="list-inline-item"> <%= cl_image_tag booking.user.photo.key, width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %> </li>
-    <% end %>
-    </ul>
+      <li class="list-inline-item"> <%= image_tag "alexis.jpg", class: "avatar" %> </li>
+      <li class="list-inline-item"> <%= image_tag "alexis.jpg", class: "avatar" %></li>
+      <li class="list-inline-item"> <%= image_tag "alexis.jpg", class: "avatar" %> </li>
     </ul>
       <h5 class="card-title font-weight-bold"><%=trip.destination%></h5>
       <div class="card-bottom d-flex justify-content-between ">

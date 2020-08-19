@@ -1,4 +1,6 @@
 class TripsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @trips = Trip.all
   end
@@ -13,6 +15,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.user = current_user
     if @trip.save
       redirect_to trips_path(@trip)
     else
