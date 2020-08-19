@@ -194,6 +194,3 @@ puts "Done !"
 #   description: "I would love to join this trip!",
 #   accepted: true
 #   )
-
-
-
