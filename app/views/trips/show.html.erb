@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container mt-5 text-center">
   <div class ="image">
     <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('paris.jpg')%>); background-size: cover ; height: 320px;">
@@ -11,6 +12,22 @@
   </div>
 
   <div class="row p-4 description">
+=======
+<div class="container mt-5">
+  <div class ="image">
+    <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('paris.jpg')%>); background-size: cover ; height: 200px;">
+      <h2 class="text-center p-2 color:white"><%=@trip.title%></h2>
+    <%#= cl_image_tag @trip.photo.key, height: 300, width: 400, crop: :fill%>
+    </div>
+  </div>
+  <div class="row p-1 destination">
+    <h2><%= @trip.destination %></h2>
+  </div>
+  <div class="row p-1 budget ">
+    <h3>Between $<%= @trip.budget_min %> - $<%= @trip.budget_max %></h3>
+  </div>
+  <div class="row p-1 description">
+>>>>>>> master
     <%= @trip.description %>
   </div>
 
@@ -86,4 +103,3 @@
   </div>
   <a class="btn btn-travel" href="#">Apply now!</a>
 </div>
-
