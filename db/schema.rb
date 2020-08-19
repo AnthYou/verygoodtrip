@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_08_18_130857) do
+=======
+ActiveRecord::Schema.define(version: 2020_08_18_154317) do
+>>>>>>> 8ec1d5bbd609c9f4e9e1a04a765ab8567c486280
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +40,17 @@ ActiveRecord::Schema.define(version: 2020_08_18_130857) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.boolean "accepted", default: false
+    t.bigint "user_id", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
+    t.index ["trip_id"], name: "index_bookings_on_trip_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -49,6 +64,10 @@ ActiveRecord::Schema.define(version: 2020_08_18_130857) do
     t.bigint "user_id"
     t.date "departure_date"
     t.date "return_date"
+<<<<<<< HEAD
+=======
+    t.bigint "user_id"
+>>>>>>> 8ec1d5bbd609c9f4e9e1a04a765ab8567c486280
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -69,4 +88,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_130857) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "trips"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "trips", "users"
 end
