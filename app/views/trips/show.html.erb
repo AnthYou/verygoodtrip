@@ -51,13 +51,15 @@
     <div class="card"> -->
 
     <%@trip.bookings.each do |booking| %>
-      <div class="card-product mb-2">
-        <%= cl_image_tag booking.user.photo.key%>
-        <div class="card-product-infos">
-          <h2><%=booking.user.first_name%></h2>
-          <p><%= booking.user.description %></p>
+      <%if booking.accepted %>
+        <div class="card-product mb-2">
+          <%= cl_image_tag booking.user.photo.key %>
+          <div class="card-product-infos">
+            <h2><%=booking.user.first_name%></h2>
+            <p><%= booking.user.description %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   <div class='text-center'>
     <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel' %>
