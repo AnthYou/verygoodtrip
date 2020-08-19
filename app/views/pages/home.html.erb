@@ -1,21 +1,61 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("banner-very-good.jpg") %>);">
+
   <div class="container">
     <h1>Welcome to <strong>Very Good Trip</strong>!</h1>
+    <p>Travel to <span id="banner-typed-text"></span></p>
+    <br>
+    <%= link_to 'See all trips', trips_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Create a trip', new_trip_path, class: 'btn btn-primary'  %>
   </div>
+
 </div>
 
 <div class="container">
-  <div class="last-trips mt-5 mb-5">
-    <h2 class="text-center mb-5">Last created trips</h2>
-    <% Trip.last(3).each do |trip| %>
-      <div class="m-3">
-        <%= render 'layouts/tripcard', trip: trip  %>
+
+  <h2 class="text-center mt-5">Why Very Good Trip?</h2>
+  <div class="container text-center mt-4 mb-5">
+    <div class="row">
+      <div class="col-4 p-3">
+        <%= image_tag "friend.png", width: 125, class: 'mb-3' %>
+        <h3>Find travel buddies</h3>
+        <p>Join a group with same interests to plan your next trip together</p>
       </div>
-    <% end %>
+      <div class="col-4 p-3">
+        <%= image_tag "travel.png", width: 125, class: 'mb-3' %>
+        <h3>Travel all together</h3>
+        <p>Explore amazing destinations all around the world</p>
+      </div>
+      <div class="col-4 p-3">
+        <%= image_tag "fun.png", width: 125, class: 'mb-3' %>
+        <h3>Amazing experiences</h3>
+        <p>Enjoy your trip together and make friends for life</p>
+      </div>
+    </div>
   </div>
-  <hr>
-  <div class="mb-5">
-    <%= link_to 'See all trips', trips_path, class: 'btn btn-outline-primary'  %>
-    <%= link_to 'Create a trip', new_trip_path, class: 'btn btn-primary'  %>
+
+  <div class="last-trips mt-5 mb-5">
+    <h2 class="text-center mb-5">Recently created trips</h2>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= render 'layouts/tripcard', trip: Trip.last %>
+        </div>
+        <div class="carousel-item">
+          <%= render 'layouts/tripcard', trip: Trip.last(2)[0] %>
+        </div>
+        <div class="carousel-item">
+          <%= render 'layouts/tripcard', trip: Trip.last(3)[0] %>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </div>
+
 </div>

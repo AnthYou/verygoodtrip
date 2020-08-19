@@ -1,0 +1,17 @@
+<div class="container bg-white p-5 mt-5 mb-5">
+  <h1 class="text-center mb-5">Dashboard</h1>
+
+    <div class="container-user-infos">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-dashboard", crop: :fill, gravity: :face%>
+      <% end %>
+        <div class="user-infos ml-5">
+          <h2>Hello <%= @user.first_name %>!</h2>
+        </div>
+    </div>
+
+    <div class="applications text-center mt-5 mb-5">
+      <h2>Trip applications</h2>
+      <%= render 'layouts/tripcards_user' %>
+    </div>
+</div>

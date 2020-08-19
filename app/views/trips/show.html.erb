@@ -1,29 +1,90 @@
-<div class="container mt-5">
+<div class="container mt-5 text-center show-container">
   <div class ="image">
-    <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('paris.jpg')%>); background-size: cover ; height: 200px;">
-      <h2 class="text-center p-2 color:white"><%=@trip.title%></h2>
+    <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @trip.photo.key, crop: :fill %>'); background-size: cover ; height: 200px;">
+      <h2 class="text-center textbanner p-2 color:white"><%=@trip.title%></h2>
     <%#= cl_image_tag @trip.photo.key, height: 300, width: 400, crop: :fill%>
     </div>
   </div>
   <div class="row p-1 destination">
-    <h2><%= @trip.destination %></h2>
+    <h2>Tell me more about the trip</h2>
   </div>
-  <div class="row p-1 budget ">
-    <h3>Between $<%= @trip.budget_min %> - $<%= @trip.budget_max %></h3>
-  </div>
-  <div class="row p-1 description">
+  <div class="row p-1 description " style="box-shadow:10px 5px 5px lightgrey;">
     <%= @trip.description %>
   </div>
-  <div class="row justify-content-between p-1">
-    <div class="col-xs-6">
-      <p>Departure date: <%= @trip.departure_date %></p>
-    </div>
-    <div class="col-xs-6">
-      <p>Return date: <%= @trip.return_date %></p>
+
+  <div class="option my-5 ">
+    <div class="tag ">Hiking</div>
+    <div class="tag mx-3">Adventure</div>
+    <div class="tag ">English speaking</div>
+ </div>
+
+  <div class="spec mt-5 mb-3">
+    <h2>Specs</h2>
+
+    <div class="icons my-3">
+      <div class= "icon">
+        <div style="font-size: 30px;">💵</div>
+        <p class="bold">Estimated:</p>
+        <p>$<%= @trip.budget_min %> and $<%= @trip.budget_max %></p>
+        </div>
+      <div class= "icon ">
+        <div style="font-size: 30px;">🛫</div>
+        <p class="bold">Departure date:</p>
+        <p><%= @trip.departure_date.strftime('%e %B %Y') %></p>
+      </div>
+      <div class= "icon ">
+        <div style="font-size: 30px;">🛬</div>
+        <p class="bold">Arrival date:</p>
+        <p><%= @trip.return_date.strftime('%e %B %Y') %></p>`
+      </div>
+      <div class= "icon">
+        <div style="font-size: 30px;">👩‍👩‍👧‍👧</div>
+        <p class="bold">Capacity max</p>
+        <p><%= @trip.capacity %> people</p>
+      </div>
     </div>
   </div>
-  <div class="row p-1">
-    <p>Capacity max: <%= @trip.capacity %></p>
+  <h2><strong>Meet your dream team</strong></h2>
+
+  <div class="peoples my-5">
+    <div class="flex">
+      <div class="people">
+        <div class="photo p-0">
+          <!-- <img src="fakepeople1.jpg" alt=""> -->
+          <%= image_tag "fakepeople1.jpg" %>
+        </div>
+        <div class="peopledescription text-left">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, proin diam lectus vestibulum aenean ultrices no</p>
+        </div>
+      </div>
+      <div class="people">
+        <div class="photo p-0">
+          <%= image_tag "fakepeople3.jpg" %>
+        </div>
+        <div class="peopledescription text-left">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, proin diam lectus vestibulum aenean ultrices no</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="people" >
+        <div class="photo p-0">
+
+          <%= image_tag "fakepeople3.jpg" %>
+        </div>
+        <div class="peopledescription text-left">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, proin diam lectus vestibulum aenean ultrices no</p>
+        </div>
+      </div>
+      <div class="people">
+        <div class="photo p-0">
+          <%= image_tag "fakepeople4.jpg" %>
+        </div>
+        <div class="peopledescription text-left">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, proin diam lectus vestibulum aenean ultrices no</p>
+        </div>
+      </div>
+    </div>   `
   </div>
   <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-primary' %>
 </div>

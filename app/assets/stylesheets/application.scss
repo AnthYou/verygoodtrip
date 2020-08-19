@@ -12,7 +12,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "pages/new_trip_form";
+
 
 .container-view {
   min-height: calc(100vh - #{$footer-height} - #{$navbar-height});
