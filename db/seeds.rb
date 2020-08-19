@@ -24,8 +24,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, proin diam lectus
   destination: "Paris",
   budget_min: 1000,
   budget_max: 2000,
-  departure_date: "20/06/2021",
-  return_date: "5/07/2021",
+  departure_date: Date.parse("20/06/2021"),
+  return_date: Date.parse("5/07/2021"),
   capacity: 12,
 )
 puts "attach photo for trip 1"
@@ -41,8 +41,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, proin diam lectus
   destination:"Saint-Denis" ,
   budget_min: 1500,
   budget_max: 3000,
-  departure_date: "3/09/2020",
-  return_date: "17/09/2020",
+  departure_date: Date.parse("3/09/2020"),
+  return_date: Date.parse("17/09/2020"),
   capacity: 6,
 )
 puts "attach photo for trip 2"
@@ -57,8 +57,8 @@ trip3 =Trip.new(
   destination:"Camargue" ,
   budget_min: 350,
   budget_max: 400,
-  departure_date: "18/08/2020",
-  return_date: "31/08/2020",
+  departure_date: Date.parse("18/08/2020"),
+  return_date: Date.parse("31/08/2020"),
   capacity: 4,
 )
 puts "attach photo for trip 3"
@@ -73,8 +73,8 @@ trip4 =Trip.new(
   destination: "Rome",
   budget_min: 350,
   budget_max: 850,
-  departure_date: "21/08/2020",
-  return_date: "23/08/2020",
+  departure_date: Date.parse("21/08/2020"),
+  return_date: Date.parse("23/08/2020"),
   capacity: 6,
 )
 puts "attach photo for trip 4"
