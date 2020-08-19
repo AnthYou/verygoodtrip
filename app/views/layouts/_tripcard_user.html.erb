@@ -11,10 +11,10 @@
   <% days_before_departure = trip.departure_date - Date.today %>
 
   <!--  Badges Pending or Accepted -->
-  <% if trip.bookings.first.accepted %>
-    <span class="badge badge-success mb-3 p-2 font-weight-light" style="position: absolute; right: 620px; top:20px;"> Accepted</span>
+  <% if @user.bookings.first.accepted %>
+    <span class="badge badge-success mb-3 p-2 font-weight-light" style="position: absolute; left: 20px; top:20px;">Accepted</span>
   <% else %>
-    <span class="badge badge-warning mb-3 p-2 font-weight-light" style="position: absolute; right: 620px; top:20px;"> Pending</span>
+    <span class="badge badge-warning mb-3 p-2 font-weight-light" style="position: absolute; left: 20px; top:20px;">Pending</span>
   <% end  %>
 
   <!--  Badges Departure -->
@@ -22,16 +22,17 @@
     <span class="badge badge-success mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> Departed !</span>
   <% elsif days_before_departure <= 7 %>
     <span class="badge badge-danger mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> <%= (days_before_departure).to_i %> days before departure</span>
-  <% else%>
+  <% else %>
     <span class="badge badge-info mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;"> <%= (days_before_departure).to_i %> days before departure</span>
-  <%end %>
+  <% end %>
   </div>
     <div class="card-body" style="position: relative">
      <!--  AVATARS -->
     <ul class= "in-line p-2" style="position: absolute; right: 17px; top:-28px ">
-      <li class="list-inline-item"> <%= image_tag "alexis.jpg", class: "avatar" %> </li>
-      <li class="list-inline-item"> <%= image_tag "alexis.jpg", class: "avatar" %></li>
-      <li class="list-inline-item"> <%= image_tag "alexis.jpg", class: "avatar" %> </li>
+    <% trip.bookings.each do |booking| %>
+      <li class="list-inline-item"> <%= cl_image_tag booking.user.photo.key, width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %> </li>
+    <% end %>
+    </ul>
     </ul>
       <h5 class="card-title font-weight-bold"><%=trip.destination%></h5>
       <div class="card-bottom d-flex justify-content-between ">
