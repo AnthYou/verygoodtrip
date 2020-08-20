@@ -4,12 +4,10 @@ class PagesController < ApplicationController
   def home
     @trips = Trip.geocoded # returns flats with coordinates
     @markers = @trips.map do |trip|
-
       {
         lat: trip.latitude,
         lng: trip.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { trip: trip }),
-
+        infoWindow: render_to_string(partial: "info_window", locals: { trip: trip })
       }
     end
   end
