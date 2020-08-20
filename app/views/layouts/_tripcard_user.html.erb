@@ -30,8 +30,12 @@
      <!--  AVATARS -->
     <ul class= "in-line p-2" style="position: absolute; right: 17px; top:-28px ">
     <% trip.bookings.each do |booking| %>
-      <%if booking.accepted %>
-          <li class="list-inline-item"> <%= cl_image_tag booking.user.photo.key, width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %> </li>
+      <% if booking.accepted %>
+        <% if booking.user.photo.attached? %>
+          <li class="list-inline-item"><%= cl_image_tag booking.user.photo.key, width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %></li>
+        <% else %>
+          <li class="list-inline-item"><%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg", width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %></li>
+        <% end %>
       <% end %>
     <% end %>
     </ul>
