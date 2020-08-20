@@ -3,7 +3,7 @@
   <div class="container">
     <h1>Welcome to <strong>Very Good Trip</strong>!</h1>
     <p>Travel to <span id="banner-typed-text"></span></p>
-    <%= link_to 'See all trips', trips_path, class: 'btn btn-travel' %>
+    <%= link_to 'See all trips', trips_path, class: 'btn btn-travel-secondary' %>
     <%= link_to 'Create a trip', new_trip_path, class: 'btn btn-travel'  %>
   </div>
 
@@ -14,17 +14,17 @@
   <h2 class="text-center mt-5">Why Very Good Trip?</h2>
   <div class="container text-center mt-4 mb-5">
     <div class="row">
-      <div class="col-4 p-3">
+      <div class="col-md-4 p-3">
         <%= image_tag "friend.png", width: 125, class: 'mb-3' %>
         <h3>Find travel buddies</h3>
         <p>Join a group with same interests to plan your next trip together</p>
       </div>
-      <div class="col-4 p-3">
+      <div class="col-md-4 p-3">
         <%= image_tag "travel.png", width: 125, class: 'mb-3' %>
         <h3>Travel all together</h3>
         <p>Explore amazing destinations all around the world</p>
       </div>
-      <div class="col-4 p-3">
+      <div class="col-md-4 p-3">
         <%= image_tag "fun.png", width: 125, class: 'mb-3' %>
         <h3>Amazing experiences</h3>
         <p>Enjoy your trip together and make friends for life</p>

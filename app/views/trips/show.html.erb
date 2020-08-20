@@ -44,13 +44,15 @@
       </div>
     </div>
   </div>
-  <h2 class="text-center mb-4"><strong>Meet your dream team</strong></h2>
+  <h2 class="text-center mt-5 mb-4"><strong>Meet your dream team</strong></h2>
 
 <!--   Iteration over bookings to display user cards -->
  <!--  <div class="cards justify-content-center">
     <div class="card"> -->
 
-    <div class="card-product mt-5 mb-3" style="position: relative;">
+    <!-- OWNER -->
+  <div class="cards-product mt-5">
+    <div class="card-product" style="position: relative;">
       <% if @trip.user.photo.attached? %>
         <%= cl_image_tag @trip.user.photo.key %>
       <% else %>
@@ -63,9 +65,10 @@
       </div>
     </div>
 
+    <!-- TRIP USERS -->
     <% @trip.bookings.each do |booking| %>
       <% if booking.accepted %>
-        <div class="card-product mb-2">
+        <div class="card-product">
         <% if booking.user.photo.attached? %>
             <%= cl_image_tag booking.user.photo.key %>
         <% else %>
@@ -78,6 +81,7 @@
         </div>
       <% end %>
     <% end %>
+  </div>
 
   <div class='text-center'>
     <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel' %>
