@@ -72,7 +72,7 @@ trips = [
   [
     {
       title: "Experience a magical christmas in New York",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis. In id est ac quam placerat posuere vel ac tortor. ",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis.",
       destination: "New York",
       budget_min: 1000,
       budget_max: 2000,
@@ -86,7 +86,7 @@ trips = [
   [
     {
       title: "Discover the Reunion Island",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis. In id est ac quam placerat posuere vel ac tortor. " ,
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis." ,
       destination:"Saint-Denis" ,
       budget_min: 1500,
       budget_max: 3000,
@@ -100,7 +100,7 @@ trips = [
   [
     {
       title: "Horsing and chilling in Camargue",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis. In id est ac quam placerat posuere vel ac tortor. ",
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis.",
       destination:"Camargue" ,
       budget_min: 350,
       budget_max: 400,
@@ -114,7 +114,7 @@ trips = [
   [
     {
       title: "From Roma with Love",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis. In id est ac quam placerat posuere vel ac tortor. " ,
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis." ,
       destination: "Rome",
       budget_min: 350,
       budget_max: 850,
@@ -142,14 +142,30 @@ puts "Done !"
 
 puts "Seeding bookings..."
 
-10.times do
-  Booking.create!(
-    user: User.all.sample,
+
+
+User.all.each do |user|
+  3.times do
+    Booking.create!(
+    user: user,
     trip: Trip.all.sample,
     description: "I would love to join this trip!",
-    accepted: true
-  )
+    accepted: true,
+    )
+  end
 end
+
+
+
+# 10.times do
+#   while
+#   Booking.create!(
+#     user: User.all.sample,
+#     trip: Trip.all.sample,
+#     description: "I would love to join this trip!",
+#     accepted: true
+#   )
+# end
 
 puts "Done !"
 
