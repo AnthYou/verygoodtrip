@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to trip_path(@trip)
     else
+      flash[:alert] = @booking.errors.full_messages.join("; ")
       render :new
     end
   end

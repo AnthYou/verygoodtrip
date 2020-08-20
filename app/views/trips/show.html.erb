@@ -1,26 +1,72 @@
-<div class="container mt-5">
-  <div class="row p-1">
-    <h1><%= @trip.title %></h1>
+<div class="container mt-5 show-container">
+  <div class ="image">
+    <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @trip.photo.key, crop: :fill %>'); background-size: cover ; height: 400px;">
+      <h2 class="text-center textbanner p-2 color:white"><%=@trip.title%></h2>
+    <%#= cl_image_tag @trip.photo.key, height: 300, width: 400, crop: :fill%>
+    </div>
   </div>
-  <div class="row p-1">
-    <h2><%= @trip.destination %></h2>
+  <div class="row p-1 destination">
+    <h2>The trip</h2>
   </div>
-  <div class="row p-1">
-    <h3>Between $<%= @trip.budget_min %> - $<%= @trip.budget_max %></h3>
-  </div>
-  <div class="row p-1">
+  <div class="row p-4 description text-center " style="box-shadow:5px 5px 5px lightgrey;">
     <%= @trip.description %>
   </div>
-  <div class="row justify-content-between p-1">
-    <div class="col-xs-6">
-      <p>Departure date: <%= @trip.departure_date %></p>
-    </div>
-    <div class="col-xs-6">
-      <p>Return date: <%= @trip.return_date %></p>
+
+  <div class="option my-5 ">
+    <div class="tag ">Hiking</div>
+    <div class="tag mx-3">Adventure</div>
+    <div class="tag ">English speaking</div>
+ </div>
+
+  <div class="spec mt-5 mb-3">
+    <h2 class="text-center">Specs</h2>
+
+    <div class="icons my-3">
+      <div class= "icon text-center">
+        <div style="font-size: 30px;">💵</div>
+        <p class="bold text-center">Estimated:</p>
+        <p class="text-center">$<%= @trip.budget_min %> and $<%= @trip.budget_max %></p>
+        </div>
+      <div class= "icon text-center ">
+        <div style="font-size: 30px;">🛫</div>
+        <p class="bold text-center">Departure date:</p>
+        <p class= "text-center"><%= @trip.departure_date.strftime('%e %B %Y') %></p>
+      </div>
+      <div class= "icon text-center ">
+        <div style="font-size: 30px;">🛬</div>
+        <p class="bold text-center">Arrival date:</p>
+        <p class= 'text-center'><%= @trip.return_date.strftime('%e %B %Y') %></p>`
+      </div>
+      <div class= "icon text-center">
+        <div style="font-size: 30px;">👩‍👩‍👧‍👧</div>
+        <p class="bold text-center">Capacity max</p>
+        <p class="text-center"><%= @trip.capacity %> people</p>
+      </div>
     </div>
   </div>
-  <div class="row p-1">
-    <p>Capacity max: <%= @trip.capacity %></p>
+  <h2 class="text-center mb-4"><strong>Meet your dream team</strong></h2>
+
+<!--   Iteration over bookings to display user cards -->
+ <!--  <div class="cards justify-content-center">
+    <div class="card"> -->
+
+    <%@trip.bookings.each do |booking| %>
+      <% if booking.accepted %>
+        <div class="card-product mb-2">
+        <% if booking.user.photo.attached? %>
+            <%= cl_image_tag booking.user.photo.key %>
+        <% else %>
+            <%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg" %>
+        <% end %>
+          <div class="card-product-infos">
+            <h2><%=booking.user.first_name%></h2>
+            <p><%= booking.user.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <div class='text-center'>
+    <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel' %>
   </div>
-  <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-primary' %>
 </div>
+
