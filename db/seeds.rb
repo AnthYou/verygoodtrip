@@ -147,7 +147,7 @@ trips = [
       budget_max: 3000,
       departure_date: "3/09/2020".to_date,
       return_date: "17/09/2020".to_date,
-      capacity: 3,
+      capacity: 4,
       user: User.all.sample
     },
     "https://www.decisionsdurables.com/wp-content/uploads/2017/03/la_reunion_vue_du_ciel02_-_credit_irt_-_serge_gelabert_dts_12_2014.jpg"
@@ -175,7 +175,7 @@ trips = [
       budget_max: 850,
       departure_date: "21/08/2020".to_date,
       return_date: "23/08/2020".to_date,
-      capacity: 3,
+      capacity: 5,
       user: User.all.sample
     },
     "https://images.unsplash.com/photo-1546946590-5d739771abc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1512&q=80"
