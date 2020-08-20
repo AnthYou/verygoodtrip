@@ -1,3 +1,15 @@
+.cards-product {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
+}
+
+@media (max-width: 576px) {
+  .cards-product {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -159,6 +171,24 @@ flex-direction: column;
   background: black;
   color: white;
 }
+
+.btn-travel-secondary {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: grey;
+  transition: background 0.3s ease;
+  margin-top:50px;
+  margin-bottom: 50px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.btn-travel-secondary:hover {
+  background: grey;
+  color: white;
+}
+
 
 .textbanner{
   color: white;
