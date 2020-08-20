@@ -3,7 +3,9 @@
 
     <div class="container-user-infos">
       <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class: "avatar-dashboard", crop: :fill, gravity: :face%>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-dashboard", crop: :fill, gravity: :face %>
+      <% else %>
+        <%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg", class: "avatar-dashboard", crop: :fill, gravity: :face %>
       <% end %>
         <div class="user-infos ml-5">
           <h2>Hello <%= @user.first_name %>!</h2>
@@ -11,7 +13,19 @@
     </div>
     <div class="applications mt-5 mb-5">
       <hr>
-      <h2 class="text-center">Trip applications</h2>
-      <%= render 'layouts/tripcards_user' %>
+      <h2 class="text-center">Your trips</h2>
+      <% if @trips_admin == [] %>
+        <p class="text-center">You haven't created a trip yet</p>
+      <% else %>
+        <%= render 'layouts/tripcards_admin' %>
+      <% end  %>
+      <hr>
+      <h2 class="text-center">Your applications</h2>
+      <% if @user.trips == [] %>
+        <p class="text-center">You haven't applied to a trip yet</p>
+      <% else %>
+        <%= render 'layouts/tripcards_user' %>
+      <% end %>
+
     </div>
 </div>

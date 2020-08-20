@@ -12,6 +12,8 @@ class Trip < ApplicationRecord
   validates :capacity, presence: true
   validate :end_date_after_start_date # error message is not displayed yet in simple form
 
+  geocoded_by :destination
+  after_validation :geocode, if: :will_save_change_to_destination?
   private
 
   def end_date_after_start_date
