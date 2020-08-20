@@ -4,9 +4,9 @@
 
     <%= simple_form_for [@trip, @booking ] do |f| %>
         <%= f.input :description, label: "Please tell us why you want to join this trip" %>
-        <%= f.submit "Submit your application", class: "btn btn-primary" %>
+        <%= f.submit "Submit your application", class: "btn btn-travel" %>
       <% end %>
       <hr>
-      <%= link_to 'Back', trips_path %>
+      <%= link_to 'Back', trips_path, class: "btn-travel-secondary" %>
   </div>
 </div>
