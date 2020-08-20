@@ -23,7 +23,7 @@
 
     <!-- TRIP OWNER -->
     <% if trip.user.photo.attached? %>
-      <li class="list-inline-item"><%= cl_image_tag trip.user.photo.key, width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %></li>
+      <li class="list-inline-item"><%= cl_image_tag trip.user.photo.key, width: 40, height: 40, gravity: :face, class: "avatar" %></li>
     <% else %>
       <li class="list-inline-item"><%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg", width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %></li>
     <% end %>
@@ -32,7 +32,7 @@
     <% trip.bookings.each do |booking| %>
       <% if booking.accepted %>
         <% if booking.user.photo.attached? %>
-          <li class="list-inline-item"><%= cl_image_tag booking.user.photo.key, width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %></li>
+          <li class="list-inline-item"><%= cl_image_tag booking.user.photo.key, width: 40, height: 40, gravity: :face, class: "avatar" %></li>
         <% else %>
           <li class="list-inline-item"><%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg", width: 40, height: 40, crop: :fill, gravity: :face, class: "avatar" %></li>
         <% end %>
