@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
+    @trips = Trip.all
     @user = current_user
     @trips_admin = @trips.where(user_id: @user.id)
   end
