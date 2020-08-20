@@ -2,7 +2,11 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @trips = Trip.all
+    if params[:query].present?
+      @trips = Trip.search_by_destination(params[:query])
+    else
+      @trips = Trip.all
+    end
   end
 
   def new
@@ -17,7 +21,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
-      redirect_to trips_path(@trip)
+      redirect_to trip_path(@trip)
     else
       render :new
     end

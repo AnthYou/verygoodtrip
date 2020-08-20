@@ -3,7 +3,18 @@
   <div class="container">
     <h1>Welcome to <strong>Very Good Trip</strong>!</h1>
     <p>Travel to <span id="banner-typed-text"></span></p>
-    <%= link_to 'See all trips', trips_path, class: 'btn btn-travel-secondary mt-2' %>
+      <!-- SEARCHBAR -->
+    <%= form_tag trips_path, class: 'my-5', method: :get do %>
+      <div class="d-flex align-items-center justify-content-center">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          style: 'width: 500px;',
+          placeholder: "Type a destination..."
+        %>
+        <%= submit_tag "Search", class: "btn btn-travel ml-2" %>
+      </div>
+    <% end %>
     <%= link_to 'Create a trip', new_trip_path, class: 'btn btn-travel mt-2'  %>
   </div>
 
@@ -32,6 +43,7 @@
     </div>
   </div>
 
+  <h2 class="text-center mt-5 pb-5 font-weight-bold">Find your next trip</h2>
   <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
@@ -39,7 +51,7 @@
   </div>
 
   <div class="last-trips mt-5 mb-5">
-    <h2 class="text-center mb-5 font-weight-bold">Recently created trips</h2>
+    <h2 class="text-center mb-5 font-weight-bold">Or explore the latest trips</h2>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
