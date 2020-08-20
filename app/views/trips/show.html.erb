@@ -51,9 +51,13 @@
     <div class="card"> -->
 
     <%@trip.bookings.each do |booking| %>
-      <%if booking.accepted %>
+      <% if booking.accepted %>
         <div class="card-product mb-2">
-          <%= cl_image_tag booking.user.photo.key %>
+        <% if booking.user.photo.attached? %>
+            <%= cl_image_tag booking.user.photo.key %>
+        <% else %>
+            <%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg" %>
+        <% end %>
           <div class="card-product-infos">
             <h2><%=booking.user.first_name%></h2>
             <p><%= booking.user.description %></p>
