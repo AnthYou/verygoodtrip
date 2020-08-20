@@ -1,0 +1,9 @@
+<div class="cards">
+  <div class="row">
+    <% @trips_admin.each do |trip| %>
+      <div class="col-12 col-lg-6 p-3">
+      <%= render 'layouts/tripcard', trip: trip  %>
+      </div>
+    <% end %>
+  </div>
+</div>

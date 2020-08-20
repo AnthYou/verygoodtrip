@@ -24,18 +24,18 @@
     <div class="icons my-3">
       <div class= "icon text-center">
         <div style="font-size: 30px;">💵</div>
-        <p class="bold text-center">Estimated:</p>
+        <p class="bold text-center">Estimated</p>
         <p class="text-center">$<%= @trip.budget_min %> and $<%= @trip.budget_max %></p>
         </div>
-      <div class= "icon text-center ">
+      <div class= "icon text-center">
         <div style="font-size: 30px;">🛫</div>
-        <p class="bold text-center">Departure date:</p>
+        <p class="bold text-center">Departure date</p>
         <p class= "text-center"><%= @trip.departure_date.strftime('%e %B %Y') %></p>
       </div>
-      <div class= "icon text-center ">
+      <div class= "icon text-center">
         <div style="font-size: 30px;">🛬</div>
-        <p class="bold text-center">Arrival date:</p>
-        <p class= 'text-center'><%= @trip.return_date.strftime('%e %B %Y') %></p>`
+        <p class="bold text-center">Return date</p>
+        <p class= 'text-center'><%= @trip.return_date.strftime('%e %B %Y') %></p>
       </div>
       <div class= "icon text-center">
         <div style="font-size: 30px;">👩‍👩‍👧‍👧</div>
@@ -44,23 +44,45 @@
       </div>
     </div>
   </div>
-  <h2 class="text-center mb-4"><strong>Meet your dream team</strong></h2>
+  <h2 class="text-center mt-5 mb-4"><strong>Meet your dream team</strong></h2>
 
 <!--   Iteration over bookings to display user cards -->
  <!--  <div class="cards justify-content-center">
     <div class="card"> -->
 
-    <%@trip.bookings.each do |booking| %>
-      <%if booking.accepted %>
-        <div class="card-product mb-2">
-          <%= cl_image_tag booking.user.photo.key %>
+    <!-- OWNER -->
+  <div class="cards-product mt-5">
+    <div class="card-product" style="position: relative;">
+      <% if @trip.user.photo.attached? %>
+        <%= cl_image_tag @trip.user.photo.key %>
+      <% else %>
+        <%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg" %>
+      <% end %>
+      <div class="card-product-infos">
+        <span class="badge badge-dark mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;">Owner</span>
+        <h2><%= @trip.user.first_name %></h2>
+        <p><%= @trip.user.description %></p>
+      </div>
+    </div>
+
+    <!-- TRIP USERS -->
+    <% @trip.bookings.each do |booking| %>
+      <% if booking.accepted %>
+        <div class="card-product">
+        <% if booking.user.photo.attached? %>
+            <%= cl_image_tag booking.user.photo.key %>
+        <% else %>
+            <%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg" %>
+        <% end %>
           <div class="card-product-infos">
-            <h2><%=booking.user.first_name%></h2>
+            <h2><%= booking.user.first_name %></h2>
             <p><%= booking.user.description %></p>
           </div>
         </div>
       <% end %>
     <% end %>
+  </div>
+
   <div class='text-center'>
     <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel' %>
   </div>
