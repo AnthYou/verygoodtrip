@@ -145,13 +145,15 @@ puts "Seeding bookings..."
 
 
 User.all.each do |user|
-  3.times do
+  5.times do
+    while
     Booking.create!(
     user: user,
     trip: Trip.all.sample,
     description: "I would love to join this trip!",
     accepted: true,
     )
+    end
   end
 end
 
