@@ -1,2 +1,4 @@
-<h2><%= trip.title %></h2>
-<p><%= trip.destination %></p>
+<div class="container text-center">
+  <%= link_to trip.title, trip_path(trip) %>
+  <%= cl_image_tag(trip.photo.key, :width=>200, :height=>100, :crop=>"scale") %>
+</div>
