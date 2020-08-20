@@ -44,6 +44,8 @@
       </div>
     </div>
   </div>
+
+
   <h2 class="text-center mt-5 mb-4"><strong>Meet your dream team</strong></h2>
 
 <!--   Iteration over bookings to display user cards -->
@@ -62,6 +64,8 @@
         <span class="badge badge-dark mb-3 p-2 font-weight-light" style="position: absolute; right: 20px; top:20px;">Owner</span>
         <h2><%= @trip.user.first_name %></h2>
         <p><%= @trip.user.description %></p>
+        <p><%= link_to "View profile", user_path(@trip.user) %>
+
       </div>
     </div>
 
@@ -77,6 +81,7 @@
           <div class="card-product-infos">
             <h2><%= booking.user.first_name %></h2>
             <p><%= booking.user.description %></p>
+            <p><%= link_to "View profile", user_path(booking.user) %>
           </div>
         </div>
       <% end %>
