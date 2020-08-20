@@ -88,8 +88,13 @@
     <% end %>
   </div>
 
-  <div class='text-center'>
-    <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel m-5' %>
+  <div class='text-center mt-5 mb-5'>
+    <% if ((@trip.bookings.count + 1) < @trip.capacity)%>
+      <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel m-5' %>
+    <% else %>
+      <p> This trip is full ! </p>
+      <%= link_to 'Back to all trips', trips_path, class: "btn-travel-secondary mb-3" %>
+    <% end %>
   </div>
 </div>
 
