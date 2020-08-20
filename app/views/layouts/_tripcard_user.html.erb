@@ -11,7 +11,7 @@
   <% days_before_departure = trip.departure_date - Date.today %>
 
   <!--  Badges Pending or Accepted -->
-  <% if trip.bookings.first.accepted %>
+  <% if @user.bookings.first.accepted %>
     <span class="badge badge-success mb-3 p-2 font-weight-light" style="position: absolute; right: 620px; top:20px;"> Accepted</span>
   <% else %>
     <span class="badge badge-warning mb-3 p-2 font-weight-light" style="position: absolute; right: 620px; top:20px;"> Pending</span>
