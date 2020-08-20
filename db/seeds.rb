@@ -218,7 +218,7 @@ descriptions = ["descript1", "descript2", "descript3", "fder"]
 10.times do
 # vérifie que que le trip n'est pas plein, sinon on en prend un autre au hasard
   trip = Trip.all.sample
-  until trip.capacity > trip.users.count
+  until trip.capacity > trip.users.count + 1
       trip = Trip.all.sample
   end
 
