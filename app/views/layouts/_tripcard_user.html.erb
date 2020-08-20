@@ -1,6 +1,5 @@
 <div class="card">
   <% if trip.photo.attached? %>
-
     <div class = "card-top d-flex align-items-center justify-content-center" style=" position: relative; height: 260px; background-size:cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.photo.key%>')">
   <% else %>
     <div class = "card-top d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('sf.jpg')%>); background-size: cover ; height: 260px; position: relative">
@@ -48,13 +47,15 @@
       <% end %>
     <% end %>
     </ul>
+
+    <!-- TRIP INFO -->
       <h5 class="card-title font-weight-bold"><%=trip.destination%></h5>
       <div class="card-bottom d-flex justify-content-between ">
        <p class="card-text card-text-description"><%=trip.description%></p>
        <div class="card-details ml-4">
         <p class="card-text"><small class="text-muted"><%=trip.capacity %> people max</small></p>
         <p class="card-text"><%= (trip.return_date - trip.departure_date).to_i %> nights</p>
-        <p class="card-text font-weight-bold"><%=trip.budget_min%> - <%=trip.budget_max%> $</p>
+        <p class="card-text font-weight-bold">$ <%=trip.budget_min%> - <%=trip.budget_max%></p>
        </div>
      </div>
    </div>
