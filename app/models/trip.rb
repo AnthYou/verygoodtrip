@@ -12,6 +12,8 @@ class Trip < ApplicationRecord
   validates :capacity, presence: true, numericality: { greater_than: 1 }
   validates :photo, presence: true
   validate :end_date_after_start_date # error message is not displayed yet in simple form
+  include PgSearch::Model
+  pg_search_scope :search_by_destination, against: :destination, using: { tsearch: { prefix: true } }
 
   geocoded_by :destination
   after_validation :geocode, if: :will_save_change_to_destination?
