@@ -13,10 +13,13 @@
 .container-card a {
   color: white !important;
   font-weight: bold;
-
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 .container-card a:hover {
   text-decoration: none;
+
 
 }
 .container-card a:active {
