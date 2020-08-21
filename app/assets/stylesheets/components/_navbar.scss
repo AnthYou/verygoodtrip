@@ -1,7 +1,10 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  // height: $navbar-height;
+    justify-content: space-between;
+    background: white;
+    // position: fixed;
+    // top: 0;
+    // filter: invert(1);
+    width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
