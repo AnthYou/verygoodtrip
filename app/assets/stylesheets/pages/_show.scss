@@ -173,11 +173,10 @@ flex-direction: column;
 }
 
 .btn-travel-secondary {
-  color: white;
+  color: black;
   padding: 8px 24px;
   border-radius: 50px;
-  background: grey;
-  transition: background 0.3s ease;
+  background: white;
   // margin-top:50px;
   // margin-bottom: 50px;
   // padding-right: 30px;
@@ -185,8 +184,7 @@ flex-direction: column;
 }
 
 .btn-travel-secondary:hover {
-  background: grey;
-  color: white;
+  color: black;
 }
 
 
