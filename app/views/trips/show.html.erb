@@ -9,7 +9,7 @@
   <div class="row p-1 destination">
     <h2>The trip</h2>
   </div>
-  <div class="row p-4 description text-center " style="box-shadow:5px 5px 5px lightgrey;">
+  <div class="row p-4 description text-center" style="box-shadow:5px 5px 5px lightgrey;">
     <%= @trip.description %>
   </div>
 
@@ -105,10 +105,13 @@
       <!-- <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel m-5' %> -->
       <button type="button" class="btn btn-travel" data-toggle="modal" data-target="#joinModal">Join this trip</button>
     <% elsif @trip.users.include?(current_user)%>
-      <p> You already sent your application to this trip ! </p>
+      <p> You already sent your application to this trip! </p>
+      <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
+    <% elsif @trip.departure_date < Date.today %>
+      <p> They are already gone! </p>
       <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
     <% else %>
-      <p> This trip is full ! </p>
+      <p> This trip is full! </p>
       <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
     <% end %>
 
