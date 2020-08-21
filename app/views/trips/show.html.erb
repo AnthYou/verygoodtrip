@@ -89,7 +89,14 @@
   </div>
 
   <div class='text-center mt-5 mb-5'>
-    <% if ((@trip.bookings.count + 1) < @trip.capacity)%>
+    <% accepted_applications = [] %>
+    <% @trip.bookings.each do |booking| %>
+      <% if booking.accepted == true %>
+        <% accepted_applications << booking %>
+      <% end %>
+    <% end %>
+
+    <% if ((accepted_applications.count + 1) < @trip.capacity)%>
       <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel m-5' %>
     <% else %>
       <p> This trip is full ! </p>
