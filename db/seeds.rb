@@ -27,7 +27,7 @@ users = [
       description: "I am the guy from Koh-Lanta and i love you",
       birth_date: "04/09/1973".to_date,
     },
-    "https://www.toutelatele.com/IMG/arton100260.jpg"
+    "https://www.guide-de-survie.com/wp-content/uploads/MOUNDIR.png"
   ],
   [
     {
@@ -127,7 +127,7 @@ trips = [
   [
     {
       title: "Experience a magical christmas in New York",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis.",
+      description: "Un jour j'irai à New York avec toi, toutes les nuits déconner,et voir aucun film en entier, ça va d'soi, Avoir la vie partagée, tailladée",
       destination: "New York, USA",
       budget_min: 1000,
       budget_max: 2000,
@@ -141,11 +141,11 @@ trips = [
   [
     {
       title: "Discover the Reunion Island",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis." ,
+      description:"Venez avec moi à la Réunion! L'île de la Réunion est un département français de l'océan Indien. Elle est réputée pour son intérieur volcanique recouvert de forêt tropicale, ses récifs de corail et ses plages" ,
       destination:"Saint-Denis, La Reunion" ,
       budget_min: 1500,
       budget_max: 3000,
-      departure_date: "3/09/2020".to_date,
+      departure_date: "20/08/2020".to_date,
       return_date: "17/09/2020".to_date,
       capacity: 4,
       user: User.all.sample
@@ -155,11 +155,11 @@ trips = [
   [
     {
       title: "Horsing and chilling in Camargue",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis.",
+      description:"Le Parc naturel régional de Camargue est situé au bord de la Méditerranée, à l’intérieur du delta du Rhône, principalement entre les deux bras du fleuve.",
       destination:"Camargue, France" ,
       budget_min: 350,
       budget_max: 400,
-      departure_date: "18/08/2020".to_date,
+      departure_date: "22/08/2020".to_date,
       return_date: "31/08/2020".to_date,
       capacity: 3,
       user: User.all.sample
@@ -169,17 +169,45 @@ trips = [
   [
     {
       title: "Week End à Rome",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis." ,
+      description: "Week-end à Rome, Tous les deux sans personne, Florence, Milan, s'il y a le temps, Week-end rital, en bagnole de fortune, variété mélo à la radio, Week-end rital.",
       destination: "Rome, Italy",
       budget_min: 350,
       budget_max: 850,
-      departure_date: "21/08/2020".to_date,
-      return_date: "23/08/2020".to_date,
-      capacity: 5,
+      departure_date: "28/08/2020".to_date,
+      return_date: "31/08/2020".to_date,
+      capacity: 2,
       user: User.all.sample
     },
     "https://images.unsplash.com/photo-1546946590-5d739771abc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1512&q=80"
-  ]
+  ],
+  [
+    {
+      title: "From Russia with Love",
+      description: "Dream weekend at the motherland. Russia, the largest nation in the world, borders European and Asian countries, as well as the Pacific and Arctic Oceans.",
+      destination: "Moscow, Russia",
+      budget_min: 200,
+      budget_max: 700,
+      departure_date: "04/09/2020".to_date,
+      return_date: "07/09/2020".to_date,
+      capacity: 2,
+      user: User.all.sample
+    },
+    "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  ],
+  [
+    {
+      title: "Road trip in Australia",
+      description:" Amazing road trip for backpackers and nature lovers. We're gonna start our trip Melbourne and then go to Cairns and finally finish our journey in Darwin" ,
+      destination: "Melbourne, Australia",
+      budget_min: 1500,
+      budget_max: 2500,
+      departure_date: "20/08/2020".to_date,
+      return_date: "29/09/2020".to_date,
+      capacity: 4,
+      user: User.all.sample
+    },
+    "https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1023&q=80"
+  ],
 ]
 
 trips.each do |trip| iterated_trip = Trip.new(trip.first)
