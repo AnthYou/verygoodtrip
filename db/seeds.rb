@@ -126,6 +126,20 @@ puts "Seeding trips ..."
 trips = [
   [
     {
+      title: "Road trip in Australia",
+      description:" Amazing road trip for backpackers and nature lovers. We're gonna start our trip Melbourne and then go to Cairns and finally finish our journey in Darwin" ,
+      destination: "Melbourne, Australia",
+      budget_min: 1500,
+      budget_max: 2500,
+      departure_date: "20/08/2020".to_date,
+      return_date: "29/09/2020".to_date,
+      capacity: 4,
+      user: User.all.sample
+    },
+    "https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1023&q=80"
+  ],
+  [
+    {
       title: "Experience a magical christmas in New York",
       description: "Un jour j'irai à New York avec toi, toutes les nuits déconner,et voir aucun film en entier, ça va d'soi, Avoir la vie partagée, tailladée",
       destination: "New York, USA",
@@ -193,21 +207,7 @@ trips = [
       user: User.all.sample
     },
     "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-  ],
-  [
-    {
-      title: "Road trip in Australia",
-      description:" Amazing road trip for backpackers and nature lovers. We're gonna start our trip Melbourne and then go to Cairns and finally finish our journey in Darwin" ,
-      destination: "Melbourne, Australia",
-      budget_min: 1500,
-      budget_max: 2500,
-      departure_date: "20/08/2020".to_date,
-      return_date: "29/09/2020".to_date,
-      capacity: 4,
-      user: User.all.sample
-    },
-    "https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1023&q=80"
-  ],
+  ]
 ]
 
 trips.each do |trip| iterated_trip = Trip.new(trip.first)
