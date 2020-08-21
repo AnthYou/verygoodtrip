@@ -24,6 +24,8 @@ const addMarkersToMap = (map, markers) => {
 };
 
 const initMapbox = () => {
+
+  // MAP IN HOME
   const mapElement = document.getElementById('map');
 
   if (mapElement) {
@@ -43,6 +45,27 @@ const initMapbox = () => {
       mapboxgl: mapboxgl
     }));
   }
+
+  const mapElement2 = document.getElementById('map2');
+
+  if (mapElement2) {
+    mapboxgl.accessToken = mapElement2.dataset.mapboxApiKey;
+    const map2 = new mapboxgl.Map({
+      container: 'map2',
+      style: 'mapbox://styles/mapbox/streets-v10'
+    });
+    const markers = JSON.parse(mapElement2.dataset.markers);
+
+    addMarkersToMap(map2, markers)
+
+    fitMapToMarkers(map2, markers);
+    map2.addControl(new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      language: 'en-US',
+      mapboxgl: mapboxgl
+    }));
+  }
+
 };
 
 export { initMapbox };
