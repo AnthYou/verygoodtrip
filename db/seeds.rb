@@ -128,7 +128,7 @@ trips = [
     {
       title: "Experience a magical christmas in New York",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis.",
-      destination: "New York",
+      destination: "New York, USA",
       budget_min: 1000,
       budget_max: 2000,
       departure_date: "20/12/2020".to_date,
@@ -142,7 +142,7 @@ trips = [
     {
       title: "Discover the Reunion Island",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis." ,
-      destination:"Saint-Denis" ,
+      destination:"Saint-Denis, La Reunion" ,
       budget_min: 1500,
       budget_max: 3000,
       departure_date: "3/09/2020".to_date,
@@ -156,7 +156,7 @@ trips = [
     {
       title: "Horsing and chilling in Camargue",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis.",
-      destination:"Camargue" ,
+      destination:"Camargue, France" ,
       budget_min: 350,
       budget_max: 400,
       departure_date: "18/08/2020".to_date,
@@ -170,7 +170,7 @@ trips = [
     {
       title: "Week End à Rome",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nulla, convallis sed libero nec, bibendum egestas nibh. Nunc consequat ac elit id convallis." ,
-      destination: "Rome",
+      destination: "Rome, Italy",
       budget_min: 350,
       budget_max: 850,
       departure_date: "21/08/2020".to_date,
@@ -199,8 +199,10 @@ puts "Seeding bookings..."
 
 
 
+
 # User.all.each do |user|
 #   5.times do
+
 
 #     Booking.create!(
 #     user: user,

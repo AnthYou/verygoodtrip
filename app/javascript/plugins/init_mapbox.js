@@ -37,8 +37,11 @@ const initMapbox = () => {
     addMarkersToMap(map, markers)
 
     fitMapToMarkers(map, markers);
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+    map.addControl(new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      language: 'en-US',
+      mapboxgl: mapboxgl
+    }));
   }
 };
 
