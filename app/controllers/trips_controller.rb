@@ -5,7 +5,7 @@ class TripsController < ApplicationController
     if params[:query].present?
       @trips = Trip.search_by_destination(params[:query])
     else
-      @trips = Trip.all
+      @trips = [Trip.undeparted.order(departure_date: :asc), Trip.departed].flatten
     end
   end
 
@@ -15,6 +15,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @booking = Booking.new
   end
 
   def create
