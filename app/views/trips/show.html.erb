@@ -12,11 +12,11 @@
     <%= @trip.description %>
   </div>
 
-  <div class="option my-5 ">
+<!--   <div class="option my-5 ">
     <div class="tag ">Hiking</div>
     <div class="tag mx-3">Adventure</div>
     <div class="tag ">English speaking</div>
- </div>
+ </div> -->
 
   <div class="spec mt-5 mb-3">
     <h2 class="text-center">Specs</h2>
@@ -96,12 +96,20 @@
       <% end %>
     <% end %>
 
-    <% if ((accepted_applications.count + 1) < @trip.capacity)%>
+
+    <% if @trip.user == current_user %>
+      <a href="#" class="btn btn-travel-secondary mr-3">Manage the trip</a>
+      <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
+    <% elsif ((accepted_applications.count + 1) < @trip.capacity) && @trip.users.exclude?(current_user)%>
       <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel m-5' %>
+    <% elsif @trip.users.include?(current_user)%>
+      <p> You already sent your application to this trip ! </p>
+      <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
     <% else %>
       <p> This trip is full ! </p>
-      <%= link_to 'Back to all trips', trips_path, class: "btn-travel-secondary mb-3" %>
+      <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
     <% end %>
+
   </div>
 </div>
 
