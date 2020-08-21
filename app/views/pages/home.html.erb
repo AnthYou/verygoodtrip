@@ -9,10 +9,10 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          style: 'width: 500px;',
+          style: 'width: 500px; border-radius: 20px;',
           placeholder: "Type a destination..."
         %>
-        <%= submit_tag "Search", class: "btn btn-travel ml-2" %>
+        <%= submit_tag "Search", class: "btn btn-travel-secondary ml-2" %>
       </div>
     <% end %>
     <%= link_to 'Create a trip', new_trip_path, class: 'btn btn-travel mt-2'  %>
