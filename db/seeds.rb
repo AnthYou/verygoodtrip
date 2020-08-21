@@ -100,11 +100,55 @@ users = [
       email: "EmmanuelMacron@official.com",
       password: 'qrgzhtht',
       first_name: "Emmanuel",
-      last_name: "Macrons",
+      last_name: "Macron",
       description: "J'ai envie de voyager parce que c'est mon projet",
       birth_date: "21/12/1977".to_date
     },
     "https://pbs.twimg.com/profile_images/711916465977466881/KpslvShn.jpg"
+  ],
+  [
+    {
+      email: "harrisonford@official.com",
+      password: 'sdfbfbfs',
+      first_name: "Harrison",
+      last_name: "Ford",
+      description: "I want to go on an adventure like it's the 80's",
+      birth_date: "13/07/1942".to_date
+    },
+    "https://d26oc3sg82pgk3.cloudfront.net/files/media/edit/image/4205/square_thumb%402x.jpg"
+  ],
+  [
+    {
+      email: "jeandujardin@official.com",
+      password: 'dflhqgrqf',
+      first_name: "Jean",
+      last_name: "Dujardin",
+      description: "Comment est votre blanquette?",
+      birth_date: "19/06/1972".to_date
+    },
+    "https://pbs.twimg.com/profile_images/2952668177/4a8302fbfbe3b2bf1d0e2c3c7ce3303a.jpeg"
+  ],
+  [
+    {
+      email: "cristinacordula@gmail.com",
+      password: 'isqdhrgiqreghif',
+      first_name: "Cristina",
+      last_name: "Córdula",
+      description: "Love Fashion and travel with mes cheries!",
+      birth_date: "30/10/1964".to_date
+    },
+    "https://media.melty.fr/article-3783779-square_256/media.jpg"
+  ],
+  [
+    {
+      email: "sophiemarceau@gmail.com",
+      password: 'heiuegriuyiy',
+      first_name: "Sophie",
+      last_name: "Marceau",
+      description: "Hey I'm Sophie Marceau! Coucou Louis ;)",
+      birth_date: "17/11/1966".to_date
+    },
+    "https://res.cloudinary.com/enjoymovie/image/upload/w_256,h_256,c_fill,g_auto:faces/tfig5iuaj4lmq9tblbw0.jpg"
   ]
 ]
 
@@ -133,7 +177,7 @@ trips = [
       budget_max: 2000,
       departure_date: "20/12/2020".to_date,
       return_date: "5/01/2021".to_date,
-      capacity: 3,
+      capacity: 4,
       user: User.all.sample
     },
     "https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
@@ -161,7 +205,7 @@ trips = [
       budget_max: 400,
       departure_date: "22/08/2020".to_date,
       return_date: "31/08/2020".to_date,
-      capacity: 3,
+      capacity: 4,
       user: User.all.sample
     },
     "https://images.unsplash.com/photo-1565622832101-358788927c53?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
@@ -245,7 +289,7 @@ puts "Seeding bookings..."
 
 descriptions = ["descript1", "descript2", "descript3", "fder"]
 
-10.times do
+8.times do
 # vérifie que que le trip n'est pas plein, sinon on en prend un autre au hasard
   trip = Trip.all.sample
   until trip.capacity > trip.users.count + 1
