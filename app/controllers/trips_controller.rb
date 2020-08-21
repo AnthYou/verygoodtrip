@@ -5,7 +5,7 @@ class TripsController < ApplicationController
     if params[:query].present?
       @trips = Trip.search_by_destination(params[:query])
     else
-      @trips = Trip.all
+      @trips = Trip.all.order('departure_date')
     end
   end
 
