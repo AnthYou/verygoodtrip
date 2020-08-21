@@ -96,12 +96,17 @@
       <% end %>
     <% end %>
 
-    <% if ((accepted_applications.count + 1) < @trip.capacity)%>
+
+    <% if ((accepted_applications.count + 1) < @trip.capacity) && @trip.users.exclude?(current_user)%>
       <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel m-5' %>
+    <% elsif @trip.users.include?(current_user)%>
+      <p> You already sent your application to this trip ! </p>
+      <%= link_to 'Back to all trips', trips_path, class: "btn-travel-secondary mb-3" %>
     <% else %>
       <p> This trip is full ! </p>
       <%= link_to 'Back to all trips', trips_path, class: "btn-travel-secondary mb-3" %>
     <% end %>
+
   </div>
 </div>
 
