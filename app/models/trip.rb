@@ -14,6 +14,9 @@ class Trip < ApplicationRecord
   validates :photo, presence: true
   validate :end_date_after_start_date # error message is not displayed yet in simple form
   include PgSearch::Model
+
+  scope :undeparted, -> { where('departure_date > ?', Date.today) }
+  scope :departed, -> { where('departure_date <= ?', Date.today) }
   pg_search_scope :search_by_destination, against: :destination, using: { tsearch: { prefix: true } }
 
   geocoded_by :destination
