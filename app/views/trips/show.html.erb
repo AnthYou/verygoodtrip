@@ -102,7 +102,8 @@
       <a href="#" class="btn btn-travel-secondary mr-3">Manage the trip</a>
       <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
     <% elsif ((accepted_applications.count + 1) < @trip.capacity) && @trip.users.exclude?(current_user)%>
-      <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel m-5' %>
+      <!-- <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel m-5' %> -->
+      <button type="button" class="btn btn-travel" data-toggle="modal" data-target="#joinModal">Join this trip</button>
     <% elsif @trip.users.include?(current_user)%>
       <p> You already sent your application to this trip ! </p>
       <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
@@ -112,5 +113,28 @@
     <% end %>
 
   </div>
+
+  <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thank you for choosing this trip!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for [ @trip, @booking ] do |f| %>
+            <%= f.input :description, label: "Please tell us why you want to join this trip" %>
+            <%= f.submit "Submit your application", class: "btn btn-travel mt-3" %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
