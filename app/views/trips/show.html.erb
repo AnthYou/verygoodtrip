@@ -101,14 +101,14 @@
     <% if @trip.user == current_user %>
       <a href="#" class="btn btn-travel-secondary mr-3">Manage the trip</a>
       <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
+    <% elsif @trip.departure_date < Date.today %>
+      <p> They are already gone! </p>
+      <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
     <% elsif ((accepted_applications.count + 1) < @trip.capacity) && @trip.users.exclude?(current_user)%>
       <!-- <%= link_to "Join this trip", new_trip_booking_path(@trip), class: 'btn btn-travel m-5' %> -->
       <button type="button" class="btn btn-travel" data-toggle="modal" data-target="#joinModal">Join this trip</button>
     <% elsif @trip.users.include?(current_user)%>
       <p> You already sent your application to this trip! </p>
-      <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
-    <% elsif @trip.departure_date < Date.today %>
-      <p> They are already gone! </p>
       <%= link_to 'Back to all trips', trips_path, class: "btn-travel mb-3" %>
     <% else %>
       <p> This trip is full! </p>
